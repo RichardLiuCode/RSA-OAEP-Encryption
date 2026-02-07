@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="topBar.css">
     <script src="topBar.js"></script>
     <link rel="stylesheet" href="generateKeysPage.css">
+    <script defer src="generateKeys.js"></script>
 </head>
 
 <body>
@@ -14,6 +15,14 @@
         <button id="top-bar-encrypt-btn">Encrypt</button>
         <button id="top-bar-decrypt-btn">Decrypt</button>
     </div>
+    <select id="KeySizeSelector">
+        <option value="1024">1024 bit</option>
+        <option value="2048">2048 bit</option>
+        <option value="3072">3072 bit</option>
+        <option value="4096">4096 bit</option>
+    </select>
+    <button id="generateKeyBtn">Generate RSA Key Pair</button>
+    <textarea id="publicKey" readonly></textarea>
 </body>
 
 </html>
