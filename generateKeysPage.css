@@ -76,6 +76,14 @@ body {
     border-color: white;
 }
 
+#generateKeyBtn:hover {
+    background-color: rgb(97, 158, 250);
+}
+
+#generateKeyBtn:active {
+    background-color: rgb(109, 165, 250);
+}
+
 .resultDisplayArea {
     background-color: rgb(84, 189, 250);
     margin: 0 auto;
@@ -105,7 +113,7 @@ body {
 .resultDisplayArea .resultTextContainer {
     position: absolute;
     left: 10px;
-    width: calc(100% - 20px);
+    width: calc(100% - 25px);
     background-color: white;
     top: 40px;
     height: 97px;
@@ -148,4 +156,39 @@ body {
     margin: 0px;
     padding: none;
     font-size: 14px;
+}
+
+.resultDisplayArea .copyKeyButton {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+    height: 22px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkblue;
+    background-color: white;
+    color: darkblue;
+    font-family: arial;
+    font-size: 12px;
+}
+
+.resultDisplayArea .copyKeyStatus {
+    font-family: arial;
+    background-color: rgb(217, 236, 253);
+    width: fit-content;
+    height: 22px;
+    position: absolute;
+    top: 10px;
+    right: 75px;
+    margin: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: darkblue;
 }

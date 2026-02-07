@@ -13,6 +13,22 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                     const exportedAsString = String.fromCharCode.apply(null, new Uint8Array(exportedPublicKey));
                     const exportedAsBase64 = btoa(exportedAsString);
                     const FullExportedPublicKey = "-----BEGIN PUBLIC KEY-----" + "\n" + exportedAsBase64 + "\n" + "-----END PUBLIC KEY-----";
+                    const copyKey = function () {
+                        if (navigator.clipboard.writeText) {
+                            navigator.clipboard.writeText(FullExportedPublicKey);
+                            document.getElementById("publicKeyCopyStatus").style.display = "flex";
+                            document.getElementById("publicKeyCopyStatus").innerText = "Key copied";
+                        } else {
+                            document.getElementById("publicKeyCopyStatus").innerText = "Failed to copy key";
+                        }
+                        setTimeout(function () {
+                            document.getElementById("publicKeyCopyStatus").innerText = "";
+                            document.getElementById("publicKeyCopyStatus").style.display = "none";
+                        }, 3000)
+
+                    }
+                    document.getElementById("PublicKeyCopyButton").removeEventListener("click", copyKey);
+                    document.getElementById("PublicKeyCopyButton").addEventListener("click", copyKey);
                     document.getElementById("publicKeyDisplayArea").innerText = FullExportedPublicKey;
                 });
             window.crypto.subtle.exportKey("pkcs8", keyPair.privateKey)
@@ -20,6 +36,21 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                     const exportedAsString = String.fromCharCode.apply(null, new Uint8Array(exportedPrivateKey));
                     const exportedAsBase64 = btoa(exportedAsString);
                     const FullExportedPrivateKey = "-----BEGIN PRIVATE KEY-----" + "\n" + exportedAsBase64 + "\n" + "-----END PRIVATE KEY-----";
+                    const copyKey = function () {
+                        if (navigator.clipboard.writeText) {
+                            navigator.clipboard.writeText(FullExportedPrivateKey);
+                            document.getElementById("privateKeyCopyStatus").style.display = "flex";
+                            document.getElementById("privateKeyCopyStatus").innerText = "Key copied";
+                        } else {
+                            document.getElementById("privateKeyCopyStatus").innerText = "Failed to copy key";
+                        }
+                        setTimeout(function () {
+                            document.getElementById("privateKeyCopyStatus").innerText = "";
+                            document.getElementById("privateKeyCopyStatus").style.display = "none";
+                        }, 3000);
+                    }
+                    document.getElementById("PrivateKeyCopyButton").removeEventListener("click", copyKey);
+                    document.getElementById("PrivateKeyCopyButton").addEventListener("click", copyKey);
                     document.getElementById("privateKeyDisplayArea").innerText = FullExportedPrivateKey;
                 })
         })
