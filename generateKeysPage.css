@@ -1,5 +1,151 @@
 body {
     margin: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background-color: skyblue;
+}
+
+.generateKeyFormWrapper {
+    margin: 0 auto;
+    width: fit-content;
+    height: 30px;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: rgb(84, 189, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+}
+
+.generateKeyFormWrapperInnerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+}
+
+.generateKeyFormWrapperInnerDiv .label {
+    font-family: arial;
+    height: 26px;
+    background-color: rgb(87, 153, 252);
+    color: white;
+    padding-left: 10px;
+    border-radius: 30px 0px 0px 30px;
+    border-style: solid;
+    border-width: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+#KeySizeSelector {
+    cursor: pointer;
+    width: 500px;
+    height: 100%;
+    border-radius: 0px 30px 30px 0px;
+    border-style: solid;
+    border-width: 2px 2px 2px 0px;
+    border-color: white;
+    background-color: rgb(150, 189, 248);
+    font-size: 16px;
+    color: darkblue;
+}
+
+#KeySizeSelector:focus {
+    outline: none;
+}
+
+#KeySizeSelector option {
+    background-color: rgb(186, 212, 252);
+}
+
+#generateKeyBtn {
+    cursor: pointer;
+    width: 190px;
+    height: 30px;
+    background-color: rgb(87, 153, 252);
+    color: white;
+    font-size: 14px;
+    border-radius: 30px;
+    margin-right: 3px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+}
+
+.resultDisplayArea {
+    background-color: rgb(84, 189, 250);
+    margin: 0 auto;
+    width: 805px;
+    height: 150px;
+    position: relative;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.resultDisplayArea .title {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    font-family: arial;
+    color: darkblue;
+    user-select: none;
+    pointer-events: none;
+    background: none;
+    width: fit-content;
+    height: fit-content;
+    margin: 0px;
+    padding: 0px;
+}
+
+.resultDisplayArea .resultTextContainer {
+    position: absolute;
+    left: 10px;
+    width: calc(100% - 20px);
+    background-color: white;
+    top: 40px;
+    height: 97px;
+    overflow-y: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkblue;
+    border-radius: 10px;
+}
+
+
+.resultDisplayArea .resultTextContainer::-webkit-scrollbar {
+    border-radius: 0px 7px 7px 0px;
+    background-color: rgb(146, 194, 250);
+    width: 10px;
+}
+
+.resultDisplayArea .resultTextContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(81, 134, 250);
+    border-radius: 20px;
+}
+
+.resultDisplayArea .resultTextContainer::-webkit-scrollbar-button {
+    background-color: rgba(146, 194, 250, 0);
+    border-radius: 10px;
+    height: 2px;
+}
+
+.resultDisplayArea pre {
+    margin: 0px;
+    padding-left: 5px;
+}
+
+.resultDisplayArea pre code {
+    cursor: text;
+    width: 100%;
+    word-break: break-all;
+    white-space: normal;
+    overflow-y: auto;
+    margin: 0px;
+    padding: none;
+    font-size: 14px;
 }

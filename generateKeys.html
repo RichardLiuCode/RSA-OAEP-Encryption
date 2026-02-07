@@ -15,14 +15,31 @@
         <button id="top-bar-encrypt-btn">Encrypt</button>
         <button id="top-bar-decrypt-btn">Decrypt</button>
     </div>
-    <select id="KeySizeSelector">
-        <option value="1024">1024 bit</option>
-        <option value="2048">2048 bit</option>
-        <option value="3072">3072 bit</option>
-        <option value="4096">4096 bit</option>
-    </select>
-    <button id="generateKeyBtn">Generate RSA Key Pair</button>
-    <textarea id="publicKey" readonly></textarea>
+    <div class="generateKeyFormWrapper">
+        <div class="generateKeyFormWrapperInnerDiv">
+            <span class="label">Key size:&nbsp</span>
+            <select id="KeySizeSelector">
+                <option value="1024">1024 bit</option>
+                <option value="2048">2048 bit</option>
+                <option value="3072">3072 bit</option>
+                <option value="4096">4096 bit</option>
+            </select>
+        </div>
+        <button id="generateKeyBtn">Generate RSA Key Pair</button>
+    </div>
+    <div class="resultDisplayArea">
+        <p class="title">Public key</p>
+        <div class="resultTextContainer">
+            <pre><code id="publicKeyDisplayArea" readonly></code></pre>
+        </div>
+    </div>
+    <div class="resultDisplayArea">
+        <p class="title">Private key</p>
+        <div class="resultTextContainer">
+            <pre><code id="privateKeyDisplayArea" readonly></code></pre>
+        </div>
+    </div>
+
 </body>
 
 </html>
