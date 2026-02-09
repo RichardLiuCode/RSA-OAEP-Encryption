@@ -27,23 +27,24 @@
         </div>
         <button id="generateKeyBtn">Generate RSA Key Pair</button>
     </div>
-    <div class="resultDisplayArea">
-        <p class="title">Public key</p>
-        <p id="publicKeyCopyStatus" class="copyKeyStatus"></p>
-        <button class="copyKeyButton" id="PublicKeyCopyButton">Copy</button>
-        <div class="resultTextContainer">
-            <pre><code id="publicKeyDisplayArea" readonly></code></pre>
+    <div id="resultWrapper">
+        <div class="resultDisplayArea">
+            <p class="title">Public key</p>
+            <p id="publicKeyCopyStatus" class="copyKeyStatus"></p>
+            <button class="copyKeyButton" id="PublicKeyCopyButton">Copy</button>
+            <div class="resultTextContainer">
+                <pre><code id="publicKeyDisplayArea" readonly></code></pre>
+            </div>
+        </div>
+        <div class="resultDisplayArea">
+            <p class="title">Private key</p>
+            <p id="privateKeyCopyStatus" class="copyKeyStatus"></p>
+            <button class="copyKeyButton" id="PrivateKeyCopyButton">Copy</button>
+            <div class="resultTextContainer">
+                <pre><code id="privateKeyDisplayArea" readonly></code></pre>
+            </div>
         </div>
     </div>
-    <div class="resultDisplayArea">
-        <p class="title">Private key</p>
-        <p id="privateKeyCopyStatus" class="copyKeyStatus"></p>
-        <button class="copyKeyButton" id="PrivateKeyCopyButton">Copy</button>
-        <div class="resultTextContainer">
-            <pre><code id="privateKeyDisplayArea" readonly></code></pre>
-        </div>
-    </div>
-
 </body>
 
 </html>

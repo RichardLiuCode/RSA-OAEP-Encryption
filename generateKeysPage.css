@@ -17,6 +17,7 @@ body {
     align-items: center;
     gap: 10px;
     border-radius: 30px;
+    box-shadow: 0 0 3px 3px rgb(91, 135, 192);
 }
 
 .generateKeyFormWrapperInnerDiv {
@@ -88,10 +89,11 @@ body {
     background-color: rgb(84, 189, 250);
     margin: 0 auto;
     width: 805px;
-    height: 150px;
+    height: 153px;
     position: relative;
     margin-top: 20px;
     border-radius: 10px;
+    box-shadow: 0 0 3px 3px rgb(91, 135, 192);
 }
 
 .resultDisplayArea .title {
@@ -116,7 +118,7 @@ body {
     width: calc(100% - 25px);
     background-color: white;
     top: 40px;
-    height: 97px;
+    height: 100px;
     overflow-y: auto;
     border-style: solid;
     border-width: 2px;
@@ -191,4 +193,8 @@ body {
     align-items: center;
     border-radius: 5px;
     color: darkblue;
+}
+
+#resultWrapper {
+    display: none;
 }

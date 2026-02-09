@@ -30,6 +30,7 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                     document.getElementById("PublicKeyCopyButton").removeEventListener("click", copyKey);
                     document.getElementById("PublicKeyCopyButton").addEventListener("click", copyKey);
                     document.getElementById("publicKeyDisplayArea").innerText = FullExportedPublicKey;
+                    document.getElementById("resultWrapper").style.display = "revert";
                 });
             window.crypto.subtle.exportKey("pkcs8", keyPair.privateKey)
                 .then(function (exportedPrivateKey) {

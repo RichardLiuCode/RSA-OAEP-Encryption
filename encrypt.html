@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="topBar.css">
     <script src="topBar.js"></script>
     <link rel="stylesheet" href="encryptPage.css">
-    <script src="encrypt.js"></script>
+    <script defer src="encrypt.js"></script>
 </head>
 
 <body>
@@ -14,6 +14,17 @@
         <button id="top-bar-generateKey-btn">Generate Keys</button>
         <button id="top-bar-encrypt-btn" style="pointer-events:none" class="currentPageBtn">Encrypt</button>
         <button id="top-bar-decrypt-btn">Decrypt</button>
+    </div>
+    <div class="encryptFormContainer">
+        <textarea id="input" placeholder="Original Message"></textarea>
+        <br>
+        <label id="status" for="publicKeyInput"></label>
+        <textarea id="publicKey" name="publicKeyInput" placeholder="Public key" spellcheck="false"></textarea>
+        <br>
+        <button id="encryptBtn">Encrypt</button>
+        <br>
+        <textarea id="result" readonly></textarea>
+
     </div>
 </body>
 
