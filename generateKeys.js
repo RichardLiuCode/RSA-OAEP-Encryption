@@ -1,3 +1,49 @@
+let localStorageData = {};
+window.addEventListener("load", function () {
+    if (localStorage.getItem("Project:RSA-OAEP-Encryption")) {
+        localStorageData = JSON.parse(localStorage.getItem("Project:RSA-OAEP-Encryption"));
+        document.getElementById("resultWrapper").style.display = "revert";
+        document.getElementById("publicKeyDisplayArea").innerText = localStorageData.generatedPublicKey;
+        document.getElementById("PublicKeyCopyButton").addEventListener("click", function () {
+            if (navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(localStorageData.generatedPublicKey);
+                document.getElementById("publicKeyCopyStatus").style.display = "flex";
+                document.getElementById("publicKeyCopyStatus").innerText = "Key copied";
+            } else {
+                document.getElementById("publicKeyCopyStatus").innerText = "Failed to copy key";
+            }
+            setTimeout(function () {
+                document.getElementById("publicKeyCopyStatus").innerText = "";
+                document.getElementById("publicKeyCopyStatus").style.display = "none";
+            }, 3000)
+        });
+        document.getElementById("privateKeyDisplayArea").innerText = localStorageData.generatedPrivateKey;
+        document.getElementById("PrivateKeyCopyButton").addEventListener("click", function () {
+            if (navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(localStorageData.generatedPrivateKey);
+                document.getElementById("privateKeyCopyStatus").style.display = "flex";
+                document.getElementById("privateKeyCopyStatus").innerText = "Key copied";
+            } else {
+                document.getElementById("privateKeyCopyStatus").innerText = "Failed to copy key";
+            }
+            setTimeout(function () {
+                document.getElementById("privateKeyCopyStatus").innerText = "";
+                document.getElementById("privateKeyCopyStatus").style.display = "none";
+            }, 3000)
+        });
+    } else {
+        document.getElementById("resultWrapper").style.display = "none";
+        localStorageData.generatedPublicKey = "";
+        localStorageData.generatedPrivateKey = "";
+        localStorageData.inputOriginalMessageForEncrypt = "";
+        localStorageData.inputPublicKeyForEncrypt = "";
+        localStorageData.encyptedMessage = "";
+        localStorageData.inputOriginalMessageForEncrypt = "";
+        localStorageData.inputEncryptedMessageForDecrypt = "";
+        localStorageData.inputPrivateKeyForDecrypt = "";
+        localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
+    }
+})
 document.getElementById("generateKeyBtn").addEventListener("click", function () {
     window.crypto.subtle.generateKey(
         {
@@ -24,9 +70,11 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                         setTimeout(function () {
                             document.getElementById("publicKeyCopyStatus").innerText = "";
                             document.getElementById("publicKeyCopyStatus").style.display = "none";
-                        }, 3000)
+                        }, 3000);
 
                     }
+                    localStorageData.generatedPublicKey = FullExportedPublicKey;
+                    localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
                     document.getElementById("PublicKeyCopyButton").removeEventListener("click", copyKey);
                     document.getElementById("PublicKeyCopyButton").addEventListener("click", copyKey);
                     document.getElementById("publicKeyDisplayArea").innerText = FullExportedPublicKey;
@@ -50,6 +98,8 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                             document.getElementById("privateKeyCopyStatus").style.display = "none";
                         }, 3000);
                     }
+                    localStorageData.generatedPrivateKey = FullExportedPrivateKey;
+                    localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
                     document.getElementById("PrivateKeyCopyButton").removeEventListener("click", copyKey);
                     document.getElementById("PrivateKeyCopyButton").addEventListener("click", copyKey);
                     document.getElementById("privateKeyDisplayArea").innerText = FullExportedPrivateKey;

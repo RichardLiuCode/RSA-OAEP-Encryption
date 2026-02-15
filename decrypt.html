@@ -15,6 +15,18 @@
         <button id="top-bar-encrypt-btn">Encrypt</button>
         <button id="top-bar-decrypt-btn" style="pointer-events:none" class="currentPageBtn">Decrypt</button>
     </div>
+    <div class="decryptFormContainer">
+        <textarea id="input" placeholder="Encrypted Message"></textarea>
+        <br>
+        <textarea id="privateKey" placeholder="Private key" spellcheck="false"></textarea>
+        <br>
+        <div class="encryptOptionWrapper">
+            <button id="encryptBtn">Decrypt</button>
+            <label id="status"></label>
+        </div>
+        <textarea id="result" readonly></textarea>
+
+    </div>
 </body>
 
 </html>

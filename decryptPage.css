@@ -5,6 +5,103 @@ body {
     background-color: skyblue;
 }
 
-#encrypt {
-    width: 100%;
+
+.decryptFormContainer {
+    margin: 0 auto;
+    width: 802px;
+    height: fit-content;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: rgb(84, 189, 250);
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 3px rgb(91, 135, 192);
+}
+
+#input,
+#privateKey,
+#result {
+    resize: none;
+    width: 796px;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: darkblue;
+    font-family: arial;
+    font-size: 14px;
+    color: black;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+#input {
+    height: 120px;
+}
+
+#privateKey {
+    height: 80px;
+}
+
+#input:focus,
+#privateKey:focus {
+    outline: none;
+}
+
+
+#input::-webkit-scrollbar,
+#privateKey::-webkit-scrollbar,
+#result::-webkit-scrollbar {
+    border-radius: 0px 7px 7px 0px;
+    background-color: rgb(146, 194, 250);
+    width: 10px;
+}
+
+#input::-webkit-scrollbar-thumb,
+#privateKey::-webkit-scrollbar-thumb,
+#result::-webkit-scrollbar-thumb {
+    background-color: rgb(81, 134, 250);
+    border-radius: 20px;
+}
+
+#input::-webkit-scrollbar-button,
+#privateKey::-webkit-scrollbar-button,
+#result::-webkit-scrollbar-button {
+    background-color: rgba(146, 194, 250, 0);
+    border-radius: 10px;
+    height: 2px;
+}
+
+.encryptFormContainer .encryptOptionWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+#status {
+    font-family: arial;
+    color: darkblue;
+}
+
+#encryptBtn {
+    cursor: pointer;
+    width: 100px;
+    height: 25px;
+    background-color: rgb(130, 177, 247);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+    border-color: white;
+    font-size: 14px;
+    color: rgb(2, 56, 126);
+    user-select: none;
+}
+
+#result {
+    margin-top: 8px;
+    height: 210px;
+}
+
+#result:focus {
+    outline: none;
 }

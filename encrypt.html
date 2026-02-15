@@ -18,11 +18,12 @@
     <div class="encryptFormContainer">
         <textarea id="input" placeholder="Original Message"></textarea>
         <br>
-        <label id="status" for="publicKeyInput"></label>
         <textarea id="publicKey" name="publicKeyInput" placeholder="Public key" spellcheck="false"></textarea>
         <br>
-        <button id="encryptBtn">Encrypt</button>
-        <br>
+        <div class="encryptOptionWrapper">
+            <button id="encryptBtn">Encrypt</button>
+            <label id="status" for="publicKeyInput"></label>
+        </div>
         <textarea id="result" readonly></textarea>
 
     </div>

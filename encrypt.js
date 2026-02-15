@@ -1,3 +1,20 @@
+let localStorageData = {};
+if (localStorage.getItem("Project:RSA-OAEP-Encryption")) {
+    localStorageData = JSON.parse(localStorage.getItem("Project:RSA-OAEP-Encryption"));
+    document.getElementById("input").value = localStorageData.inputOriginalMessageForEncrypt || "";
+    document.getElementById("publicKey").value = localStorageData.inputPublicKeyForEncrypt || "";
+    document.getElementById("result").value = localStorageData.encyptedMessage || "";
+} else {
+    localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
+}
+document.getElementById("input").addEventListener("input", function () {
+    localStorageData.inputOriginalMessageForEncrypt = this.value;
+    localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
+});
+document.getElementById("publicKey").addEventListener("input", function () {
+    localStorageData.inputPublicKeyForEncrypt = this.value;
+    localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
+})
 document.getElementById("encryptBtn").addEventListener("click", function () {
     if (document.getElementById("input").value == "") {
         return;
@@ -52,8 +69,10 @@ document.getElementById("encryptBtn").addEventListener("click", function () {
                         const encryptedMessageUint8Array = new Uint8Array(encryptedMessage);
                         const encryptedMessageHex = encryptedMessageUint8Array.map(b => b.toString(16).padStart(2, "0")).join("");
                         document.getElementById("result").value = encryptedMessageHex;
+                        localStorageData.encyptedMessage = document.getElementById("result").value;
+                        localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
                     })
             })
     }
 
-})
+});
