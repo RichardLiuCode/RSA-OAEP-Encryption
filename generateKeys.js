@@ -3,10 +3,10 @@ window.addEventListener("load", function () {
     if (localStorage.getItem("Project:RSA-OAEP-Encryption")) {
         localStorageData = JSON.parse(localStorage.getItem("Project:RSA-OAEP-Encryption"));
         document.getElementById("resultWrapper").style.display = "revert";
-        document.getElementById("publicKeyDisplayArea").innerText = localStorageData.generatedPublicKey;
+        document.getElementById("publicKeyDisplayArea").innerText = localStorageData.generatedPublicKey || "";
         document.getElementById("PublicKeyCopyButton").addEventListener("click", function () {
             if (navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(localStorageData.generatedPublicKey);
+                navigator.clipboard.writeText(localStorageData.generatedPublicKey || "");
                 document.getElementById("publicKeyCopyStatus").style.display = "flex";
                 document.getElementById("publicKeyCopyStatus").innerText = "Key copied";
             } else {
@@ -17,10 +17,10 @@ window.addEventListener("load", function () {
                 document.getElementById("publicKeyCopyStatus").style.display = "none";
             }, 3000)
         });
-        document.getElementById("privateKeyDisplayArea").innerText = localStorageData.generatedPrivateKey;
+        document.getElementById("privateKeyDisplayArea").innerText = localStorageData.generatedPrivateKey || "";
         document.getElementById("PrivateKeyCopyButton").addEventListener("click", function () {
             if (navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(localStorageData.generatedPrivateKey);
+                navigator.clipboard.writeText(localStorageData.generatedPrivateKey || "");
                 document.getElementById("privateKeyCopyStatus").style.display = "flex";
                 document.getElementById("privateKeyCopyStatus").innerText = "Key copied";
             } else {
