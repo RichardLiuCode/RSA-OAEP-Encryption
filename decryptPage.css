@@ -71,7 +71,7 @@ body {
     height: 2px;
 }
 
-.encryptFormContainer .encryptOptionWrapper {
+.decryptFormContainer .decryptOptionWrapper {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -83,7 +83,7 @@ body {
     color: darkblue;
 }
 
-#encryptBtn {
+#decryptBtn {
     cursor: pointer;
     width: 100px;
     height: 25px;
