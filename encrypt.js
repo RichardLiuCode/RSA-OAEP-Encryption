@@ -14,7 +14,7 @@ document.getElementById("input").addEventListener("input", function () {
 document.getElementById("publicKey").addEventListener("input", function () {
     localStorageData.inputPublicKeyForEncrypt = this.value;
     localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
-})
+});
 document.getElementById("encryptBtn").addEventListener("click", function () {
     if (document.getElementById("input").value == "") {
         return;
@@ -30,7 +30,7 @@ document.getElementById("encryptBtn").addEventListener("click", function () {
     const inputPublicKey = document.getElementById("publicKey").value;
     let RawKey = inputPublicKey;
     if (RawKey.substring(0, 26) == "-----BEGIN PUBLIC KEY-----") {
-        RawKey = RawKey.substring(26, RawKey.length)
+        RawKey = RawKey.substring(26, RawKey.length);
     } else {
         invalidKey = true;
     }
@@ -43,9 +43,9 @@ document.getElementById("encryptBtn").addEventListener("click", function () {
         document.getElementById("status").innerText = invalidKeyMsg;
         setTimeout(function () {
             document.getElementById("status").innerText = "";
-        }, 2000)
+        }, 2000);
     } else {
-        const binaryDerString = atob(RawKey)
+        const binaryDerString = atob(RawKey);
         const binaryDer = new Uint8Array(binaryDerString.length);
         for (let i = 0; i < binaryDerString.length; i++) {
             binaryDer[i] = binaryDerString.charCodeAt(i);
@@ -66,13 +66,17 @@ document.getElementById("encryptBtn").addEventListener("click", function () {
                     importedKey,
                     encodedMessage)
                     .then(function (encryptedMessage) {
-                        const encryptedMessageUint8Array = new Uint8Array(encryptedMessage);
-                        const encryptedMessageHex = encryptedMessageUint8Array.map(b => b.toString(16).padStart(2, "0")).join("");
-                        document.getElementById("result").value = encryptedMessageHex;
+                        let bytes = new Uint8Array(encryptedMessage);
+                        let binary = "";
+                        for (let i = 0; i < bytes.length; i++) {
+                            binary = binary + String.fromCharCode(bytes[i]);
+                        }
+                        const readableEncryptedMessage = btoa(binary);
+                        document.getElementById("result").value = readableEncryptedMessage;
                         localStorageData.encyptedMessage = document.getElementById("result").value;
                         localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
-                    })
-            })
+                    });
+            });
     }
 
 });
