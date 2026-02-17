@@ -4,8 +4,6 @@ if (localStorage.getItem("Project:RSA-OAEP-Encryption")) {
     document.getElementById("input").value = localStorageData.inputOriginalMessageForEncrypt || "";
     document.getElementById("publicKey").value = localStorageData.inputPublicKeyForEncrypt || "";
     document.getElementById("result").value = localStorageData.encyptedMessage || "";
-} else {
-    localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
 }
 document.getElementById("input").addEventListener("input", function () {
     localStorageData.inputOriginalMessageForEncrypt = this.value;

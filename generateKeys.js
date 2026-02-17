@@ -15,7 +15,7 @@ window.addEventListener("load", function () {
             setTimeout(function () {
                 document.getElementById("publicKeyCopyStatus").innerText = "";
                 document.getElementById("publicKeyCopyStatus").style.display = "none";
-            }, 3000)
+            }, 3000);
         });
         document.getElementById("privateKeyDisplayArea").innerText = localStorageData.generatedPrivateKey || "";
         document.getElementById("PrivateKeyCopyButton").addEventListener("click", function () {
@@ -29,21 +29,12 @@ window.addEventListener("load", function () {
             setTimeout(function () {
                 document.getElementById("privateKeyCopyStatus").innerText = "";
                 document.getElementById("privateKeyCopyStatus").style.display = "none";
-            }, 3000)
+            }, 3000);
         });
     } else {
         document.getElementById("resultWrapper").style.display = "none";
-        localStorageData.generatedPublicKey = "";
-        localStorageData.generatedPrivateKey = "";
-        localStorageData.inputOriginalMessageForEncrypt = "";
-        localStorageData.inputPublicKeyForEncrypt = "";
-        localStorageData.encyptedMessage = "";
-        localStorageData.inputOriginalMessageForEncrypt = "";
-        localStorageData.inputEncryptedMessageForDecrypt = "";
-        localStorageData.inputPrivateKeyForDecrypt = "";
-        localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
     }
-})
+});
 document.getElementById("generateKeyBtn").addEventListener("click", function () {
     window.crypto.subtle.generateKey(
         {
@@ -72,7 +63,7 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                             document.getElementById("publicKeyCopyStatus").style.display = "none";
                         }, 3000);
 
-                    }
+                    };
                     localStorageData.generatedPublicKey = FullExportedPublicKey;
                     localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
                     document.getElementById("PublicKeyCopyButton").removeEventListener("click", copyKey);
@@ -97,12 +88,12 @@ document.getElementById("generateKeyBtn").addEventListener("click", function () 
                             document.getElementById("privateKeyCopyStatus").innerText = "";
                             document.getElementById("privateKeyCopyStatus").style.display = "none";
                         }, 3000);
-                    }
+                    };
                     localStorageData.generatedPrivateKey = FullExportedPrivateKey;
                     localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
                     document.getElementById("PrivateKeyCopyButton").removeEventListener("click", copyKey);
                     document.getElementById("PrivateKeyCopyButton").addEventListener("click", copyKey);
                     document.getElementById("privateKeyDisplayArea").innerText = FullExportedPrivateKey;
-                })
-        })
+                });
+        });
 });
