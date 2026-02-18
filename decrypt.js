@@ -4,6 +4,7 @@ window.addEventListener("load", function () {
         localStorageData = JSON.parse(localStorage.getItem("Project:RSA-OAEP-Encryption"));
         document.getElementById("input").value = localStorageData.inputEncryptedMessageForDecrypt || "";
         document.getElementById("privateKey").value = localStorageData.inputPrivateKeyForDecrypt || "";
+        document.getElementById("result").value = localStorageData.decryptedMessageResult || "";
     }
 });
 document.getElementById("input").addEventListener("input", function () {
@@ -65,6 +66,8 @@ document.getElementById("decryptBtn").addEventListener("click", function () {
                     .then(function (decryptedMessage) {
                         const decoder = new TextDecoder();
                         document.getElementById("result").value = decoder.decode(decryptedMessage);
+                        localStorageData.decryptedMessageResult = document.getElementById("result").value;
+                        localStorage.setItem("Project:RSA-OAEP-Encryption", JSON.stringify(localStorageData));
                     })
                     .catch(function () {
                         displayError();
