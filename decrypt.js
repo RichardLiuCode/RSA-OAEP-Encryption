@@ -66,11 +66,11 @@ document.getElementById("decryptBtn").addEventListener("click", function () {
                         const decoder = new TextDecoder();
                         document.getElementById("result").value = decoder.decode(decryptedMessage);
                     })
-                    .catch(function (error) {
+                    .catch(function () {
                         displayError();
                     });
             })
-            .catch(function (error) {
+            .catch(function () {
                 displayError();
             });
     } else {
